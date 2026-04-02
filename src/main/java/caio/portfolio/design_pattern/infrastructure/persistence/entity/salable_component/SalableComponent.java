@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Version;
 import lombok.AccessLevel;
@@ -13,6 +15,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+@Inheritance(strategy=InheritanceType.JOINED)
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Entity
 @Table(name="salable_component")
