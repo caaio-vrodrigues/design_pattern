@@ -1,13 +1,20 @@
-package caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component;
+package caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.kit;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.ArrayList;
 
+import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.SalableComponent;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder.Default;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,6 +41,11 @@ public class Kit extends SalableComponent {
 	
 	@Column(name="units", nullable=false)
 	private Integer units;
+	
+	@Default
+	@OneToMany(
+		mappedBy="kit", fetch=FetchType.LAZY, cascade=CascadeType.ALL, orphanRemoval=true)
+	private List<KitItem> kitItemList = new ArrayList<>();
 
 	@Override
 	public BigDecimal getPrice() {
