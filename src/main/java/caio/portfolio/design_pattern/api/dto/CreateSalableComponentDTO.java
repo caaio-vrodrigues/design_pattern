@@ -1,0 +1,26 @@
+package caio.portfolio.design_pattern.api.dto;
+
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
+import caio.portfolio.design_pattern.domain.model.command.CreateSalableComponentCommand;
+import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
+@JsonTypeInfo(use=Id.NAME, include=As.PROPERTY, property="type")
+@JsonSubTypes({
+	// to-do
+}) 
+@NoArgsConstructor(access=AccessLevel.PROTECTED)
+@SuperBuilder
+@Getter
+public abstract class CreateSalableComponentDTO {
+
+	public abstract CreateSalableComponentCommand toCommand();
+	public abstract SalableComponentType getType();
+}
