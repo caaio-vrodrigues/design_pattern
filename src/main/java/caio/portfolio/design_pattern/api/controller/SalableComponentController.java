@@ -20,7 +20,7 @@ public class SalableComponentController {
 	
 	private final CreateSalableComponentHandler createSalableComponentHandler;
 
-	@PostMapping
+	@PostMapping("/salable-component")
 	public ResponseEntity<ResponseSalableComponentDTO> createSalableComponent(
 		@Valid @RequestBody CreateSalableComponentDTO dto	
 	) {
