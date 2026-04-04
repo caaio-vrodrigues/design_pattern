@@ -3,7 +3,6 @@ package caio.portfolio.design_pattern.api.dto;
 import java.math.BigDecimal;
 
 import caio.portfolio.design_pattern.domain.model.command.CreateProductCommand;
-import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -45,10 +44,5 @@ public class CreateProductDTO extends CreateSalableComponentDTO {
 			.price(price)
 			.units(units)
 			.build();
-	}
-
-	@Override
-	public SalableComponentType getType() {
-		return SalableComponentType.PRODUCT;
 	}
 }

@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
 import caio.portfolio.design_pattern.domain.model.command.CreateSalableComponentCommand;
-import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,5 +22,4 @@ import lombok.experimental.SuperBuilder;
 public abstract class CreateSalableComponentDTO {
 
 	public abstract CreateSalableComponentCommand toCommand();
-	public abstract SalableComponentType getType();
 }
