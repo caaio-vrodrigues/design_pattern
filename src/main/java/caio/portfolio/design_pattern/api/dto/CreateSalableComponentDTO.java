@@ -14,8 +14,9 @@ import lombok.experimental.SuperBuilder;
 
 @JsonTypeInfo(use=Id.NAME, include=As.PROPERTY, property="type")
 @JsonSubTypes({
-	@Type(value=CreateProductDTO.class, name="PRODUCT")
-}) 
+	@Type(value=CreateProductDTO.class, name="PRODUCT"),
+	@Type(value=CreateServiceDTO.class, name="SERVICE")
+})
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @SuperBuilder
 @Getter
