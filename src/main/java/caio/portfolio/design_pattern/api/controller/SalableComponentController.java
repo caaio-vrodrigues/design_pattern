@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import caio.portfolio.design_pattern.api.dto.CreateSalableComponentDTO;
+import caio.portfolio.design_pattern.api.dto.salable_component.CreateSalableComponentDTO;
 import caio.portfolio.design_pattern.application.dto.ResponseSalableComponentDTO;
 import caio.portfolio.design_pattern.application.handler.CreateSalableComponentHandler;
 import jakarta.validation.Valid;

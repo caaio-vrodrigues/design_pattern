@@ -5,7 +5,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import caio.portfolio.design_pattern.application.dto.ResponseSalableComponentDTO;
-import caio.portfolio.design_pattern.domain.model.command.CreateSalableComponentCommand;
+import caio.portfolio.design_pattern.domain.model.command.salable_component.CreateSalableComponentCommand;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentValidator;

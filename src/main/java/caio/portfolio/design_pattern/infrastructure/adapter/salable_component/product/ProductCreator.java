@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.domain.model.interfaces.product;
+package caio.portfolio.design_pattern.infrastructure.adapter.salable_component.product;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import caio.portfolio.design_pattern.application.dto.ResponseProductDTO;
 import caio.portfolio.design_pattern.application.dto.ResponseSalableComponentDTO;
 import caio.portfolio.design_pattern.domain.exception.salable_component.product.ConcurrentProductException;
-import caio.portfolio.design_pattern.domain.model.command.CreateProductCommand;
+import caio.portfolio.design_pattern.domain.model.command.salable_component.product.CreateProductCommand;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentCreator;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.Product;

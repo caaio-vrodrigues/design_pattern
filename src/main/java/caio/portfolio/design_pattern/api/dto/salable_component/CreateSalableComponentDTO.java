@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.api.dto;
+package caio.portfolio.design_pattern.api.dto.salable_component;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
@@ -6,7 +6,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
-import caio.portfolio.design_pattern.domain.model.command.CreateSalableComponentCommand;
+import caio.portfolio.design_pattern.api.dto.salable_component.product.CreateProductDTO;
+import caio.portfolio.design_pattern.api.dto.salable_component.service.CreateServiceDTO;
+import caio.portfolio.design_pattern.domain.model.command.salable_component.CreateSalableComponentCommand;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
