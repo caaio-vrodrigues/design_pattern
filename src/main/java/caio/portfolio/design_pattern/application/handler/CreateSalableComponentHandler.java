@@ -18,7 +18,7 @@ public class CreateSalableComponentHandler {
 	
 	private final Map<
 		SalableComponentType, 
-		SalableComponentValidator<CreateSalableComponentCommand>> createSalableComponentValidators;
+		SalableComponentValidator<CreateSalableComponentCommand>> salableComponentValidators;
 	
 	private final Map<
 		SalableComponentType, 
@@ -28,7 +28,7 @@ public class CreateSalableComponentHandler {
 	public ResponseSalableComponentDTO createSalableComponent(
 		CreateSalableComponentCommand command
 	) {
-		createSalableComponentValidators.get(command.getType())
+		salableComponentValidators.get(command.getType())
 			.validateSalableComponent(command);
 		return salableComponentCreators.get(command.getType())
 			.createSalableComponent(command);

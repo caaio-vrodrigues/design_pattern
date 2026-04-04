@@ -16,7 +16,7 @@ import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentVal
 public class GlobalConfig {
 
 	@Bean
-	public Map<SalableComponentType, SalableComponentValidator<?>> createSalableComponentValidators(
+	public Map<SalableComponentType, SalableComponentValidator<?>> salableComponentValidators(
 		List<SalableComponentValidator<?>> validators	
 	) {
 		return validators.stream().collect(Collectors.toMap(
