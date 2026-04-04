@@ -9,17 +9,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
-import caio.portfolio.design_pattern.domain.model.interfaces.CreateSalableComponentValidator;
+import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentValidator;
 
 @Configuration
 public class GlobalConfig {
 
 	@Bean
-	public Map<SalableComponentType, CreateSalableComponentValidator<?>> createSalableComponentValidators(
-		List<CreateSalableComponentValidator<?>> validators	
+	public Map<SalableComponentType, SalableComponentValidator<?>> createSalableComponentValidators(
+		List<SalableComponentValidator<?>> validators	
 	) {
 		return validators.stream().collect(Collectors.toMap(
-			CreateSalableComponentValidator::getType, 
+			SalableComponentValidator::getType, 
 			Function.identity()));
 	}
 }

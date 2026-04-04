@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import caio.portfolio.design_pattern.application.dto.ResponseSalableComponentDTO;
 import caio.portfolio.design_pattern.domain.model.command.CreateSalableComponentCommand;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
-import caio.portfolio.design_pattern.domain.model.interfaces.CreateSalableComponentValidator;
+import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentValidator;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
@@ -17,7 +17,7 @@ public class CreateSalableComponentHandler {
 	
 	private final Map<
 		SalableComponentType, 
-		CreateSalableComponentValidator<CreateSalableComponentCommand>> createSalableComponentValidators;
+		SalableComponentValidator<CreateSalableComponentCommand>> createSalableComponentValidators;
 
 	@Transactional
 	public ResponseSalableComponentDTO createSalableComponent(
