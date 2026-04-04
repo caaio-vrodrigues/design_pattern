@@ -3,7 +3,7 @@ package caio.portfolio.design_pattern.api.dto.salable_component.service;
 import java.math.BigDecimal;
 
 import caio.portfolio.design_pattern.api.dto.salable_component.CreateSalableComponentDTO;
-import caio.portfolio.design_pattern.domain.model.command.salable_component.service.CreateServiceCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.service.CreateServiceCommand;
 import caio.portfolio.design_pattern.domain.model.enums.ServiceCategory;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

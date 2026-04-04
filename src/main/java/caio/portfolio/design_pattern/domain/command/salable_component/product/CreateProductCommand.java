@@ -1,10 +1,9 @@
-package caio.portfolio.design_pattern.domain.model.command.salable_component.service;
+package caio.portfolio.design_pattern.domain.command.salable_component.product;
 
 import java.math.BigDecimal;
 
-import caio.portfolio.design_pattern.domain.model.command.salable_component.CreateSalableComponentCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.CreateSalableComponentCommand;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
-import caio.portfolio.design_pattern.domain.model.enums.ServiceCategory;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,15 +14,16 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @SuperBuilder
 @Getter
-public class CreateServiceCommand extends CreateSalableComponentCommand {
+public class CreateProductCommand extends CreateSalableComponentCommand {
 	
 	private String name;
-	private ServiceCategory category;
+	private String brand;
+	private String model;
 	private BigDecimal price;
-	private Boolean isAvailable;
-	
+	private Integer units;
+
 	@Override
 	public SalableComponentType getType() {
-		return SalableComponentType.SERVICE;
+		return SalableComponentType.PRODUCT;
 	}
 }

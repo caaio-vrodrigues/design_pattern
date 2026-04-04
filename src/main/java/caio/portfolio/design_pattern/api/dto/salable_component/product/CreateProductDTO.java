@@ -3,7 +3,7 @@ package caio.portfolio.design_pattern.api.dto.salable_component.product;
 import java.math.BigDecimal;
 
 import caio.portfolio.design_pattern.api.dto.salable_component.CreateSalableComponentDTO;
-import caio.portfolio.design_pattern.domain.model.command.salable_component.product.CreateProductCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.product.CreateProductCommand;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
