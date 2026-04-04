@@ -1,6 +1,7 @@
 package caio.portfolio.design_pattern.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
@@ -14,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 
 @JsonTypeInfo(use=Id.NAME, include=As.PROPERTY, property="type")
 @JsonSubTypes({
-	// to-do
+	@Type(value=CreateProductDTO.class, name="PRODUCT")
 }) 
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @SuperBuilder
