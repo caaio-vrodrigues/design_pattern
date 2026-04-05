@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentValidator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentValidator;
 
@@ -17,8 +18,8 @@ import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentVal
 public class GlobalConfig {
 
 	@Bean
-	public Map<SalableComponentType, SalableComponentValidator> salableComponentValidators(
-		List<SalableComponentValidator> validators	
+	public Map<SalableComponentType, ConventionalComponentValidator<?>> salableComponentValidators(
+		List<ConventionalComponentValidator<?>> validators	
 	) {
 		return validators.stream().collect(Collectors.toMap(
 			SalableComponentValidator::getType, 
