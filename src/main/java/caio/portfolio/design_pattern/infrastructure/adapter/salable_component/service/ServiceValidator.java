@@ -5,13 +5,13 @@ import org.springframework.stereotype.Component;
 import caio.portfolio.design_pattern.domain.command.salable_component.service.CreateServiceCommand;
 import caio.portfolio.design_pattern.domain.exception.salable_component.service.ServiceAlreadyExistsException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
-import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentValidator;
+import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentValidator;
 import caio.portfolio.design_pattern.infrastructure.persistence.repository.ServiceRepository;
 import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class ServiceValidator implements SalableComponentValidator<CreateServiceCommand> {
+public class ServiceValidator implements ConventionalComponentValidator<CreateServiceCommand> {
 	
 	private final ServiceRepository repo;
 	

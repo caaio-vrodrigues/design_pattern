@@ -5,13 +5,13 @@ import org.springframework.stereotype.Component;
 import caio.portfolio.design_pattern.domain.command.salable_component.product.CreateProductCommand;
 import caio.portfolio.design_pattern.domain.exception.salable_component.product.ProductAlreadyExistsException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
-import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentValidator;
+import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentValidator;
 import caio.portfolio.design_pattern.infrastructure.persistence.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class ProductValidator implements SalableComponentValidator<CreateProductCommand> {
+public class ProductValidator implements ConventionalComponentValidator<CreateProductCommand> {
 	
 	private final ProductRepository repo;
 	
