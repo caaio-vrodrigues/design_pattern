@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 import caio.portfolio.design_pattern.application.dto.ResponseSalableComponentDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.CreateSalableComponentCommand;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
+import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentValidator;
+import caio.portfolio.design_pattern.domain.model.interfaces.KitComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.KitComponentValidator;
-import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentCreator;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
@@ -23,9 +24,10 @@ public class CreateSalableComponentHandler {
 	
 	private final Map<
 		SalableComponentType, 
-		SalableComponentCreator<CreateSalableComponentCommand>> salableComponentCreators;
+		ConventionalComponentCreator<CreateSalableComponentCommand>> salableComponentCreators;
 	
 	private final KitComponentValidator kitComponentValidator;
+	private final KitComponentCreator<CreateSalableComponentCommand> kitComponentCreator;
 
 	@Transactional
 	public ResponseSalableComponentDTO createSalableComponent(
@@ -33,7 +35,7 @@ public class CreateSalableComponentHandler {
 	) {
 		if(command.getType() == SalableComponentType.KIT) {
 			String code = kitComponentValidator.generateAndValidateCode(); 
-			// to-do
+			return kitComponentCreator.createKit(code, command);
 		}		
 		salableComponentValidators.get(command.getType())
 			.validateSalableComponent(command);

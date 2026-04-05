@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
+import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentValidator;
 
@@ -25,8 +26,8 @@ public class GlobalConfig {
 	}
 	
 	@Bean
-	public Map<SalableComponentType, SalableComponentCreator<?>> salableComponentCreators(
-		List<SalableComponentCreator<?>> creators
+	public Map<SalableComponentType, ConventionalComponentCreator<?>> salableComponentCreators(
+		List<ConventionalComponentCreator<?>> creators
 	) {
 		return creators.stream().collect(Collectors.toMap(
 			SalableComponentCreator::getType, 
