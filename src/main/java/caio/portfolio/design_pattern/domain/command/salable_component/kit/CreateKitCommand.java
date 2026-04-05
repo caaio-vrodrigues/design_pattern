@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 public class CreateKitCommand extends CreateSalableComponentCommand {
 	
 	private Integer units;
-	private List<Object> kitItemList; // to-do
+	private List<CreateLinkedKitItemCommand> kitItemList;
 	
 	@Override
 	public SalableComponentType getType() {

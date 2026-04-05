@@ -4,6 +4,7 @@ import java.util.List;
 
 import caio.portfolio.design_pattern.api.dto.salable_component.CreateSalableComponentDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateKitCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateLinkedKitItemCommand;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;
@@ -18,18 +19,21 @@ import lombok.experimental.SuperBuilder;
 @Getter
 public class CreateKitDTO extends CreateSalableComponentDTO {
 	
-	@Positive(message = "O campo 'units' deve receber um valor maior que '0'.")
+	@Positive(message="O campo 'units' deve receber um valor maior que '0'.")
 	@NotNull(message="O campo 'units' não pode ser nulo.")
 	private Integer units;
 	
 	@NotNull(message="O campo 'kitItemList' não pode ser nulo.")
-	private List<Object> kitItemList; // to-do
+	private List<CreateLinkedKitItemDTO> kitItemList;
 	
 	@Override
 	public CreateKitCommand toCommand() {
+		List<CreateLinkedKitItemCommand> commandList = kitItemList.stream()
+			.map(dto -> dto.toCommand())
+			.toList();
 		return CreateKitCommand.builder()
 			.units(units)
-			.kitItemList(kitItemList)
+			.kitItemList(commandList)
 			.build();
 	}
 }
