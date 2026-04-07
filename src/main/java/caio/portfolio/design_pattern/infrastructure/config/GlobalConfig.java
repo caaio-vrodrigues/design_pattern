@@ -12,6 +12,7 @@ import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentValidator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentFinder;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentValidator;
 
 @Configuration
@@ -32,6 +33,15 @@ public class GlobalConfig {
 	) {
 		return creators.stream().collect(Collectors.toMap(
 			SalableComponentCreator::getType, 
+			Function.identity()));
+	}
+	
+	@Bean
+	public Map<SalableComponentType, SalableComponentFinder<?>> salableComponentFinders(
+		List<SalableComponentFinder<?>> finders	
+	) {
+		return finders.stream().collect(Collectors.toMap(
+			SalableComponentFinder::getType, 
 			Function.identity()));
 	}
 }
