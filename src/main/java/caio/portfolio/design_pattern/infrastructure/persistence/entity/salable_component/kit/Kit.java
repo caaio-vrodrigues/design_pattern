@@ -31,7 +31,7 @@ import lombok.experimental.SuperBuilder;
 	name="UK_kit_code")
 })
 @EqualsAndHashCode(callSuper=false, onlyExplicitlyIncluded=true)
-@SuperBuilder
+@SuperBuilder(toBuilder=true)
 @Getter
 public class Kit extends SalableComponent {
 	

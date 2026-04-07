@@ -19,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Entity
 @Table(name="salable_component")
-@SuperBuilder
+@SuperBuilder(toBuilder=true)
 @Getter
 public abstract class SalableComponent {
 

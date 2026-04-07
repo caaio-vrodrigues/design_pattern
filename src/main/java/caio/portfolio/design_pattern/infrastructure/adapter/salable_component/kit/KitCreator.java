@@ -1,5 +1,6 @@
 package caio.portfolio.design_pattern.infrastructure.adapter.salable_component.kit;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.dao.DataIntegrityViolationException;
@@ -56,10 +57,11 @@ public class KitCreator implements KitComponentCreator {
 	}
 	
 	private List<KitItem> getKitItemList(
+		Kit newKit,
 		List<CreateLinkedKitItemCommand> commandList
 	) {
 		return commandList.stream()
-			.map(createKitItemHandler::createKitItem)
+			.map(command -> createKitItemHandler.createKitItem(newKit, command))
 			.toList();		
 	}
 	
@@ -67,13 +69,18 @@ public class KitCreator implements KitComponentCreator {
 	public ResponseKitDTO createKit(
 		String code, CreateKitCommand command
 	) {
-		List<KitItem> kitItemList = getKitItemList(command.getKitItemList());
 		Kit newKit = Kit.builder()
 			.code(code)
 			.units(command.getUnits())
-			.kitItemList(kitItemList)
+			.kitItemList(new ArrayList<>())
 			.build();
 		newKit = saveKit(newKit);
+		List<KitItem> kitItemList = getKitItemList(
+			newKit, 
+			command.getKitItemList());
+		newKit = newKit.toBuilder()
+			.kitItemList(kitItemList)
+			.build();
 		return toRespDTO(newKit);
 	}
 

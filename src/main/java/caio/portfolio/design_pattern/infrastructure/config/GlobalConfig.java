@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentValidator;
+import caio.portfolio.design_pattern.domain.model.interfaces.LinkedKitItemValidator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentFinder;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentValidator;
@@ -42,6 +43,15 @@ public class GlobalConfig {
 	) {
 		return finders.stream().collect(Collectors.toMap(
 			SalableComponentFinder::getType, 
+			Function.identity()));
+	}
+	
+	@Bean
+	public Map<SalableComponentType, LinkedKitItemValidator<?>> linkedKitItemValidators(
+		List<LinkedKitItemValidator<?>> validators
+	) {
+		return validators.stream().collect(Collectors.toMap(
+			LinkedKitItemValidator::getType, 
 			Function.identity()));
 	}
 }
