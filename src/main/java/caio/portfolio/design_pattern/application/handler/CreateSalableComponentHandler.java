@@ -28,7 +28,8 @@ public class CreateSalableComponentHandler {
 	private final Map<
 		SalableComponentType, 
 		ConventionalComponentCreator<
-			CreateSalableComponentCommand>> salableComponentCreators;
+			CreateSalableComponentCommand, 
+			ResponseSalableComponentDTO>> salableComponentCreators;
 	
 	private final KitComponentValidator kitComponentValidator;
 	private final KitComponentCreator kitComponentCreator;

@@ -4,7 +4,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 
 import caio.portfolio.design_pattern.application.dto.ResponseProductDTO;
-import caio.portfolio.design_pattern.application.dto.ResponseSalableComponentDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.product.CreateProductCommand;
 import caio.portfolio.design_pattern.domain.exception.salable_component.product.ConcurrentProductException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
@@ -15,8 +14,10 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class ProductCreator implements ConventionalComponentCreator<CreateProductCommand> {
-	
+public class ProductCreator implements ConventionalComponentCreator<
+	CreateProductCommand, 
+	ResponseProductDTO
+> {	
 	private final ProductRepository repo;
 	
 	private Product saveProduct(Product product) {
@@ -40,7 +41,7 @@ public class ProductCreator implements ConventionalComponentCreator<CreateProduc
 	}
 	
 	@Override
-	public ResponseSalableComponentDTO createSalableComponent(
+	public ResponseProductDTO createSalableComponent(
 		CreateProductCommand command
 	) {
 		Product newProduct = Product.builder()

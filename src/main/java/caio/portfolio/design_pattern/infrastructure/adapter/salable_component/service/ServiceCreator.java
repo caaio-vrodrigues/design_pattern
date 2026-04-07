@@ -14,8 +14,9 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class ServiceCreator implements ConventionalComponentCreator<CreateServiceCommand> {
-	
+public class ServiceCreator implements ConventionalComponentCreator<
+	CreateServiceCommand, ResponseServiceDTO
+> {	
 	private final ServiceRepository repo;
 	
 	private Service saveService(Service service) {

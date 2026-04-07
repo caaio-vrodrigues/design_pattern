@@ -27,8 +27,8 @@ public class GlobalConfig {
 	}
 	
 	@Bean
-	public Map<SalableComponentType, ConventionalComponentCreator<?>> salableComponentCreators(
-		List<ConventionalComponentCreator<?>> creators
+	public Map<SalableComponentType, ConventionalComponentCreator<?, ?>> salableComponentCreators(
+		List<ConventionalComponentCreator<?, ?>> creators
 	) {
 		return creators.stream().collect(Collectors.toMap(
 			SalableComponentCreator::getType, 
