@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateLinkedKitItemCommand;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
+import caio.portfolio.design_pattern.domain.model.interfaces.LinkedKitItemCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.LinkedKitItemValidator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentFinder;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.SalableComponent;
@@ -24,6 +25,10 @@ public class CreateKitItemHandler {
 	private final Map<
 		SalableComponentType, 
 		LinkedKitItemValidator<SalableComponent>> linkedKitItemValidators;
+	
+	private final Map<
+		SalableComponentType, 
+		LinkedKitItemCreator<SalableComponent>> linkedKitItemCreators;
 
 	public KitItem createKitItem(Kit newKit, CreateLinkedKitItemCommand command) {
 		SalableComponent salableComponent = salableComponentFinders
@@ -32,6 +37,8 @@ public class CreateKitItemHandler {
 		linkedKitItemValidators
 			.get(command.getType())
 			.validateKitItem(newKit, salableComponent, command.getQuantity());
-		return null; // to-do
+		return linkedKitItemCreators
+			.get(command.getType())
+			.createKitItem(newKit, salableComponent);
 	}
 }
