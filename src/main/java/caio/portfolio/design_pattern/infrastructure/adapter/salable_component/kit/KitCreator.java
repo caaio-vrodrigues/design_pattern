@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class KitCreator implements KitComponentCreator<CreateKitCommand> {
+public class KitCreator implements KitComponentCreator {
 	
 	private final KitRepository repo;
 	private final CreateKitItemHandler createKitItemHandler;
