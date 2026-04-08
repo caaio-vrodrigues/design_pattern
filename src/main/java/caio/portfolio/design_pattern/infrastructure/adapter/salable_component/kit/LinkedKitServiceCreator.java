@@ -1,0 +1,47 @@
+package caio.portfolio.design_pattern.infrastructure.adapter.salable_component.kit;
+
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Component;
+
+import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateLinkedKitServiceCommand;
+import caio.portfolio.design_pattern.domain.exception.salable_component.kit.kit_item.ConcurrentKitItemException;
+import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
+import caio.portfolio.design_pattern.domain.model.interfaces.LinkedKitItemCreator;
+import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.Service;
+import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.kit.Kit;
+import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.kit.KitItem;
+import caio.portfolio.design_pattern.infrastructure.persistence.repository.KitItemRepository;
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
+public class LinkedKitServiceCreator implements LinkedKitItemCreator<Service, CreateLinkedKitServiceCommand> {
+	
+	private final KitItemRepository repo;
+	
+	private KitItem saveKitItem(KitItem kitItem) {
+		try {
+			return repo.save(kitItem);
+		}
+		catch(DataIntegrityViolationException e){
+			throw new ConcurrentKitItemException("Não foi possível completar a operação. Falha interna desconhecida.");
+		}
+	}
+
+	@Override
+	public KitItem createKitItem(
+		Kit newKit, Service service, CreateLinkedKitServiceCommand command
+	) {
+		KitItem newKitItem = KitItem.builder()
+			.kit(newKit)
+			.salableComponent(service)
+			.salableComponentQuantity(1)
+			.build();
+		return saveKitItem(newKitItem);
+	}
+
+	@Override
+	public SalableComponentType getType() {
+		return SalableComponentType.SERVICE;
+	}
+}
