@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.ArrayList;
 
+import caio.portfolio.design_pattern.domain.exception.salable_component.kit.InsufficientKitUnitsException;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.SalableComponent;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -51,5 +52,11 @@ public class Kit extends SalableComponent {
 	public BigDecimal getPrice() {
 		// TODO 
 		return null;
+	}
+	
+	public void decreaseUnits(Integer requiredQuantity) {
+		if(requiredQuantity > units)
+			throw new InsufficientKitUnitsException("Unidades de `Kit` insuficiente para realizar a operação. Unidades disponíveis: `"+units+"`.");
+		units -= requiredQuantity;
 	}
 }

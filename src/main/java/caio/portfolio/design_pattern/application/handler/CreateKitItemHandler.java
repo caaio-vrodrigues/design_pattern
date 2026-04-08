@@ -36,7 +36,7 @@ public class CreateKitItemHandler {
 			.findSalableComponent(command.getSalableComponentId());
 		linkedKitItemValidators
 			.get(command.getType())
-			.validateKitItem(newKit, salableComponent, command.getQuantity());
+			.validateKitItem(newKit, salableComponent);
 		return linkedKitItemCreators
 			.get(command.getType())
 			.createKitItem(newKit, salableComponent);

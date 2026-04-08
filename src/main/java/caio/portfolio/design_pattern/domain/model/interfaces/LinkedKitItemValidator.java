@@ -6,6 +6,6 @@ import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_c
 
 public interface LinkedKitItemValidator<T extends SalableComponent> {
 
-	void validateKitItem(Kit newKit, T linkedSalableComponent, Integer salableComponentQuantity);
+	void validateKitItem(Kit newKit, T linkedSalableComponent);
 	SalableComponentType getType();
 }

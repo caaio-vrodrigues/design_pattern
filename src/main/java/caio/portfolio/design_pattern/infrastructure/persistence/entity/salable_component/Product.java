@@ -2,6 +2,7 @@ package caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_
 
 import java.math.BigDecimal;
 
+import caio.portfolio.design_pattern.domain.exception.salable_component.product.InsufficientProductUnitsException;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -45,4 +46,10 @@ public class Product extends SalableComponent {
 	
 	@Column(name="units", nullable=false)
 	private Integer units;
+	
+	public void decreaseUnits(Integer requiredQuantity) {
+		if(requiredQuantity > units)
+			throw new InsufficientProductUnitsException("Unidades de `Product` insuficiente para realizar a operação. Unidades disponíveis: `"+units+"`.");
+		units -= requiredQuantity;
+	}
 }
