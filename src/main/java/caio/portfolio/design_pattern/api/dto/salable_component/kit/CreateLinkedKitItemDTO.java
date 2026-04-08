@@ -29,9 +29,5 @@ public abstract class CreateLinkedKitItemDTO {
 	@NotNull(message="O campo 'salableComponentId' não pode ser nulo.")
 	private Long salableComponentId;
 	
-	@Positive(message="O campo 'quantity' deve receber um valor maior que '0'.")
-	@NotNull(message="O campo 'quantity' não pode ser nulo.")
-	private Integer quantity;
-	
 	public abstract CreateLinkedKitItemCommand toCommand();
 }

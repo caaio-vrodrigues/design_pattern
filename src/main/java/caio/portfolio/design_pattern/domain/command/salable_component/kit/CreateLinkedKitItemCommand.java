@@ -12,7 +12,6 @@ import lombok.experimental.SuperBuilder;
 public abstract class CreateLinkedKitItemCommand {
 
 	private Long salableComponentId;
-	private Integer quantity;
 	
 	public abstract SalableComponentType getType();
 }

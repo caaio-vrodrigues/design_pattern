@@ -39,6 +39,6 @@ public class CreateKitItemHandler {
 			.validateKitItem(newKit, salableComponent);
 		return linkedKitItemCreators
 			.get(command.getType())
-			.createKitItem(newKit, salableComponent);
+			.createKitItem(newKit, salableComponent, command);
 	}
 }

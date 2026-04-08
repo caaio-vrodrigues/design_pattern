@@ -15,7 +15,6 @@ public class CreateLinkedKitServiceDTO extends CreateLinkedKitItemDTO {
 	public CreateLinkedKitServiceCommand toCommand() {
 		return CreateLinkedKitServiceCommand.builder()
 			.salableComponentId(getSalableComponentId())
-			.quantity(getQuantity())
 			.build();
 	}
 }
