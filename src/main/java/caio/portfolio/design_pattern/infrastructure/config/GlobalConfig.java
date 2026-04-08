@@ -57,8 +57,8 @@ public class GlobalConfig {
 	}
 	
 	@Bean
-	public Map<SalableComponentType, LinkedKitItemCreator<?>> linkedKitItemCreators(
-		List<LinkedKitItemCreator<?>> creators	
+	public Map<SalableComponentType, LinkedKitItemCreator<?, ?>> linkedKitItemCreators(
+		List<LinkedKitItemCreator<?, ?>> creators	
 	) {
 		return creators.stream().collect(Collectors.toMap(
 			LinkedKitItemCreator::getType, 

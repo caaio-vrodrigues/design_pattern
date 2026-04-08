@@ -28,7 +28,7 @@ public class CreateKitItemHandler {
 	
 	private final Map<
 		SalableComponentType, 
-		LinkedKitItemCreator<SalableComponent>> linkedKitItemCreators;
+		LinkedKitItemCreator<SalableComponent, CreateLinkedKitItemCommand>> linkedKitItemCreators;
 
 	public KitItem createKitItem(Kit newKit, CreateLinkedKitItemCommand command) {
 		SalableComponent salableComponent = salableComponentFinders
