@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.infrastructure.adapter.salable_component.product;
+package caio.portfolio.design_pattern.domain.exception.salable_component.product;
 
 public class InsufficientProductUnitsException extends RuntimeException {
 
