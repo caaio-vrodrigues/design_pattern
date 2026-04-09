@@ -26,15 +26,22 @@ public class LinkedKitServiceValidator implements LinkedKitItemValidator<Service
 		if(!service.getIsAvailable())
 			throw new UnavailableServiceException("O serviço solicitado está indisponível. `Service`: [name: `"+service.getName()+"`; category: `"+service.getCategory()+"`].");
 	}
-
-	@Override
-	public void validateKitItem(Kit newKit, Service service) {
-		validateUniqueness(newKit, service);
-		validateAvailability(service);
+	
+	private String generateCode() {
+		Long maxId = repo.findMaxId();
+		Long codeNumber = maxId == null ? 0 : maxId;
+		return String.valueOf(codeNumber + 1);
 	}
 
 	@Override
 	public SalableComponentType getType() {
 		return SalableComponentType.SERVICE;
+	}
+
+	@Override
+	public String validateKitItemAndGenerateCode(Kit newKit, Service service) {
+		validateUniqueness(newKit, service);
+		validateAvailability(service);
+		return generateCode();
 	}
 }

@@ -14,11 +14,18 @@ import lombok.RequiredArgsConstructor;
 public class LinkedKitKitValidator implements LinkedKitItemValidator<Kit> {
 
 	private final KitItemRepository repo;
-
+	
+	private String generateCode() {
+		Long maxId = repo.findMaxId();
+		Long codeNumber = maxId == null ? 0 : maxId;
+		return String.valueOf(codeNumber + 1);
+	}
+	
 	@Override
-	public void validateKitItem(Kit newKit, Kit kit) {
+	public String validateKitItemAndGenerateCode(Kit newKit, Kit kit) {
 		if(repo.existsByKitAndSalableComponent(newKit, kit))
 			throw new KitItemAlreadyExistsException("Falha de duplicidade ao tentar criar `KitItem`: [newKitId: `"+newKit.getId()+"`; kitId: `"+kit.getId()+"`].");
+		return generateCode();
 	}
 
 	@Override

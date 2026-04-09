@@ -42,12 +42,13 @@ public class LinkedKitProductCreator implements LinkedKitItemCreator<Product, Cr
 
 	@Override
 	public KitItem createKitItem(
-		Kit newKit, Product product, CreateLinkedKitProductCommand command
+		Kit newKit, Product product, CreateLinkedKitProductCommand command, String code
 	) {
 		Integer totalRequiredProduct = command.getQuantity() * newKit.getUnits();
 		product.decreaseUnits(totalRequiredProduct);
 		product = updateProduct(product);
 		KitItem newKitItem = KitItem.builder()
+			.code(code)
 			.kit(newKit)
 			.salableComponent(product)
 			.salableComponentQuantity(command.getQuantity())

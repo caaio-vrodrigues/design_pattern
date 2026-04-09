@@ -30,9 +30,10 @@ public class LinkedKitServiceCreator implements LinkedKitItemCreator<Service, Cr
 
 	@Override
 	public KitItem createKitItem(
-		Kit newKit, Service service, CreateLinkedKitServiceCommand command
+		Kit newKit, Service service, CreateLinkedKitServiceCommand command, String code
 	) {
 		KitItem newKitItem = KitItem.builder()
+			.code(code)
 			.kit(newKit)
 			.salableComponent(service)
 			.salableComponentQuantity(1)

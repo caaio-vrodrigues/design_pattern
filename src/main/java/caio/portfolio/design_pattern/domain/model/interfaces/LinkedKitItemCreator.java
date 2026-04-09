@@ -8,6 +8,6 @@ import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_c
 
 public interface LinkedKitItemCreator<T extends SalableComponent, C extends CreateLinkedKitItemCommand> {
 
-	KitItem createKitItem(Kit newKit, T salableComponent, C command);
+	KitItem createKitItem(Kit newKit, T salableComponent, C command, String code);
 	SalableComponentType getType();
 }

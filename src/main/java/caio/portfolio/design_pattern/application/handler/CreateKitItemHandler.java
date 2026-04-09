@@ -34,11 +34,11 @@ public class CreateKitItemHandler {
 		SalableComponent salableComponent = salableComponentFinders
 			.get(command.getType())
 			.findSalableComponent(command.getSalableComponentId());
-		linkedKitItemValidators
+		String code = linkedKitItemValidators
 			.get(command.getType())
-			.validateKitItem(newKit, salableComponent);
+			.validateKitItemAndGenerateCode(newKit, salableComponent);
 		return linkedKitItemCreators
 			.get(command.getType())
-			.createKitItem(newKit, salableComponent, command);
+			.createKitItem(newKit, salableComponent, command, code);
 	}
 }
