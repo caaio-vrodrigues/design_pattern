@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 public class CreateLinkedKitKitCommand extends CreateLinkedKitItemCommand {
 	
-	private Integer quantity;
+	private Integer requiredKitQuantity;
 
 	@Override
 	public SalableComponentType getType() {

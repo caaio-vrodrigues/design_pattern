@@ -44,14 +44,14 @@ public class LinkedKitProductCreator implements LinkedKitItemCreator<Product, Cr
 	public KitItem createKitItem(
 		Kit newKit, Product product, CreateLinkedKitProductCommand command, String code
 	) {
-		Integer totalRequiredProduct = command.getQuantity() * newKit.getUnits();
+		Integer totalRequiredProduct = command.getProductQuantity() * newKit.getUnits();
 		product.decreaseUnits(totalRequiredProduct);
 		product = updateProduct(product);
 		KitItem newKitItem = KitItem.builder()
 			.code(code)
 			.kit(newKit)
 			.salableComponent(product)
-			.salableComponentQuantity(command.getQuantity())
+			.salableComponentQuantity(command.getProductQuantity())
 			.build();
 		return saveKitItem(newKitItem);
 	}

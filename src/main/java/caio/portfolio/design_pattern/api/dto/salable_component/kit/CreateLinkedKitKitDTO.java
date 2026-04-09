@@ -13,15 +13,15 @@ import lombok.experimental.SuperBuilder;
 @Getter
 public class CreateLinkedKitKitDTO extends CreateLinkedKitItemDTO {
 	
-	@Positive(message="O campo 'quantity' deve receber um valor maior que '0'.")
-	@NotNull(message="O campo 'quantity' não pode ser nulo.")
-	private Integer quantity;
+	@Positive(message="O campo 'requiredKitQuantity' deve receber um valor maior que '0'.")
+	@NotNull(message="O campo 'requiredKitQuantity' não pode ser nulo.")
+	private Integer requiredKitQuantity;
 	
 	@Override
 	public CreateLinkedKitKitCommand toCommand() {
 		return CreateLinkedKitKitCommand.builder()
 			.salableComponentId(getSalableComponentId())
-			.quantity(getQuantity())
+			.requiredKitQuantity(requiredKitQuantity)
 			.build();
 	}
 }
