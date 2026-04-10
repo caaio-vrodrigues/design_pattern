@@ -20,18 +20,16 @@ import lombok.experimental.SuperBuilder;
 @Getter
 public class CreateServiceDTO extends CreateSalableComponentDTO {
 	
-	@NotBlank(message="O campo 'name' não pode ser vazio.")
+	@NotBlank
 	private String name;
 	
-	@NotNull(message="O campo 'category' não pode ser nulo.")
+	@NotNull
 	private ServiceCategory category;
 	
-	@Positive(message="O campo 'price' deve receber um valor maior que '0.00'.")
-	@NotNull(message="O campo 'price' não pode ser nulo.")
+	@Positive @NotNull
 	private BigDecimal price;
 	
-	
-	@NotNull(message="O campo 'isAvailable' não pode ser nulo.")
+	@NotNull
 	private Boolean isAvailable;
 	
 	@Override

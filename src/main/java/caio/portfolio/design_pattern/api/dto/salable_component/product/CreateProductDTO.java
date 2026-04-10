@@ -2,6 +2,8 @@ package caio.portfolio.design_pattern.api.dto.salable_component.product;
 
 import java.math.BigDecimal;
 
+import org.springframework.context.MessageSource;
+
 import caio.portfolio.design_pattern.api.dto.salable_component.CreateSalableComponentDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.product.CreateProductCommand;
 import jakarta.validation.constraints.NotBlank;
@@ -19,21 +21,21 @@ import lombok.experimental.SuperBuilder;
 @Getter
 public class CreateProductDTO extends CreateSalableComponentDTO {
 	
-	@NotBlank(message="O campo 'name' não pode ser vazio.")
-	private String name;
+	private MessageSource messageSource;
 	
-	@NotBlank(message="O campo 'brand' não pode ser vazio.")
+	@NotBlank 
+	private String name;	
+	
+	@NotBlank 
 	private String brand;
 	
-	@NotBlank(message="O campo 'model' não pode ser vazio.")
+	@NotBlank 
 	private String model;
 	
-	@Positive(message ="O campo 'price' deve receber um valor maior que '0.00'.")
-	@NotNull(message="O campo 'price' não pode ser nulo.")
-	private BigDecimal price;
+	@Positive @NotNull 
+	private BigDecimal price;	
 	
-	@Positive(message ="O campo 'units' deve receber um valor maior que '0'.")
-	@NotNull(message="O campo 'units' não pode ser nulo.")
+	@Positive @NotNull 
 	private Integer units;
 	
 	@Override

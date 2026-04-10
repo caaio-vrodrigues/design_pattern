@@ -25,8 +25,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 public abstract class CreateLinkedKitItemDTO {
 	
-	@Positive(message="O campo 'salableComponentId' deve receber um valor maior que '0'.")
-	@NotNull(message="O campo 'salableComponentId' não pode ser nulo.")
+	@Positive @NotNull
 	private Long salableComponentId;
 	
 	public abstract CreateLinkedKitItemCommand toCommand();

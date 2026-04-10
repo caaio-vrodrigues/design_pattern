@@ -19,11 +19,10 @@ import lombok.experimental.SuperBuilder;
 @Getter
 public class CreateKitDTO extends CreateSalableComponentDTO {
 	
-	@Positive(message="O campo 'units' deve receber um valor maior que '0'.")
-	@NotNull(message="O campo 'units' não pode ser nulo.")
+	@Positive @NotNull
 	private Integer units;
 	
-	@NotNull(message="O campo 'kitItemList' não pode ser nulo.")
+	@NotNull
 	private List<CreateLinkedKitItemDTO> kitItemList;
 	
 	@Override
