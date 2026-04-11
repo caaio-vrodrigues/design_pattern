@@ -1,10 +1,6 @@
 package caio.portfolio.design_pattern.api.controller.exception;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
-
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -15,47 +11,24 @@ import caio.portfolio.design_pattern.domain.exception.salable_component.kit.KitA
 import caio.portfolio.design_pattern.domain.exception.salable_component.kit.KitNotFoundException;
 import caio.portfolio.design_pattern.domain.exception.salable_component.kit.kit_item.ConcurrentKitItemException;
 import caio.portfolio.design_pattern.domain.exception.salable_component.kit.kit_item.KitItemAlreadyExistsException;
+import caio.portfolio.design_pattern.domain.model.interfaces.exception.ExceptionResponseFactory;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @RestControllerAdvice
+@RequiredArgsConstructor
 public class KitExceptionHandlerController {
 
-	private ProblemDetail setProperties(
-		ProblemDetail problemDetail, 
-		String traceId,
-		List<String> errorList
-	) {
-		problemDetail.setProperty("timestamp", LocalDateTime.now());
-		problemDetail.setProperty("traceId", traceId);
-		problemDetail.setProperty("errors", errorList);	
-		return problemDetail;
-	}
-	
-	private ProblemDetail createProblemDetailAndLog(
-		RuntimeException e, Integer status, String title
-	) {
-		String traceId = UUID.randomUUID().toString();
-		ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
-			HttpStatusCode.valueOf(status), 
-			e.getMessage()
-		);
-		problemDetail.setTitle(title);
-		log.warn("traceId={} error={}", traceId, e.getMessage());
-		return setProperties(
-			problemDetail, 
-			traceId, 
-			List.of(e.getMessage())
-		);
-	}
+	private final ExceptionResponseFactory exceptionResponseFactory;
 	
 	@ExceptionHandler(ConcurrentKitException.class)
 	public ProblemDetail handleConcurrentKitException(
 		ConcurrentKitException e
 	) {
 		String title = "Falha de concorrência";
-		Integer httpStatusCode = 409;
-		return createProblemDetailAndLog(e, httpStatusCode, title);
+		return exceptionResponseFactory
+			.createProblemDetailAndLog(e, HttpStatus.CONFLICT, title);
 	}
 	
 	@ExceptionHandler(InsufficientKitUnitsException.class)
@@ -63,8 +36,8 @@ public class KitExceptionHandlerController {
 		InsufficientKitUnitsException e
 	) {
 		String title = "Unidades insuficiente";
-		Integer httpStatusCode = 409;
-		return createProblemDetailAndLog(e, httpStatusCode, title);
+		return exceptionResponseFactory
+			.createProblemDetailAndLog(e, HttpStatus.CONFLICT, title);
 	}
 	
 	@ExceptionHandler(KitAlreadyExistsException.class)
@@ -72,8 +45,8 @@ public class KitExceptionHandlerController {
 		KitAlreadyExistsException e
 	) {
 		String title = "Entidade duplicada";
-		Integer httpStatusCode = 409;
-		return createProblemDetailAndLog(e, httpStatusCode, title);
+		return exceptionResponseFactory
+			.createProblemDetailAndLog(e, HttpStatus.CONFLICT, title);
 	}
 	
 	@ExceptionHandler(KitNotFoundException.class)
@@ -81,8 +54,8 @@ public class KitExceptionHandlerController {
 		KitNotFoundException e
 	) {
 		String title = "Entidade não encontrada";
-		Integer httpStatusCode = 404;
-		return createProblemDetailAndLog(e, httpStatusCode, title);
+		return exceptionResponseFactory
+			.createProblemDetailAndLog(e, HttpStatus.NOT_FOUND, title);
 	}
 	
 	@ExceptionHandler(ConcurrentKitItemException.class)
@@ -90,8 +63,8 @@ public class KitExceptionHandlerController {
 		ConcurrentKitItemException e
 	) {
 		String title = "Falha de concorrência";
-		Integer httpStatusCode = 409;
-		return createProblemDetailAndLog(e, httpStatusCode, title);
+		return exceptionResponseFactory
+			.createProblemDetailAndLog(e, HttpStatus.CONFLICT, title);
 	}
 	
 	@ExceptionHandler(KitItemAlreadyExistsException.class)
@@ -99,7 +72,7 @@ public class KitExceptionHandlerController {
 		KitItemAlreadyExistsException e
 	) {
 		String title = "Entidade duplicada";
-		Integer httpStatusCode = 409;
-		return createProblemDetailAndLog(e, httpStatusCode, title);
+		return exceptionResponseFactory
+			.createProblemDetailAndLog(e, HttpStatus.CONFLICT, title);
 	}
 }
