@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.api.controller;
+package caio.portfolio.design_pattern.api.controller.exception;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,11 +15,14 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @RestControllerAdvice
-public class ExceptionHandlerController {
+public class MethodArgumentExceptionHandlerController {
 	
-	private ProblemDetail setProperties(ProblemDetail problemDetail, String traceId) {
+	private ProblemDetail setProperties(
+		ProblemDetail problemDetail, String traceId, List<String> errorList
+	) {
 		problemDetail.setProperty("timestamp", LocalDateTime.now());
 		problemDetail.setProperty("traceId", traceId);
+		problemDetail.setProperty("errors", errorList);
 		return problemDetail;
 	}
 	
@@ -46,8 +49,7 @@ public class ExceptionHandlerController {
 		List<String> errorList = getBindingResultList(fieldErrors);
 		ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatusCode.valueOf(400));
 		problemDetail.setTitle("Argumento inválido");	
-		problemDetail.setProperty("errors", errorList);
 		log.warn("traceId={} fieldErrors={}", traceId, fieldErrors);
-		return setProperties(problemDetail, traceId);
+		return setProperties(problemDetail, traceId, errorList);
 	}
 }
