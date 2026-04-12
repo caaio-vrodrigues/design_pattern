@@ -24,11 +24,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access=AccessLevel.PRIVATE)
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Entity
-@Table(name="kit_units", uniqueConstraints = {
+@Table(name="kit_item", uniqueConstraints = {
 	@UniqueConstraint(columnNames = {
 		"kit_id", "salable_component_id"
 	},
-	name="UK_kit_units_kit_id_salable_component_id")
+	name="UK_kit_item_kit_id_salable_component_id")
 })
 @EqualsAndHashCode(onlyExplicitlyIncluded=true)
 @Builder

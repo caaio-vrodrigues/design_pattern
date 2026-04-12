@@ -11,9 +11,7 @@ import caio.portfolio.design_pattern.domain.exception.salable_component.service.
 import caio.portfolio.design_pattern.domain.exception.salable_component.service.UnavailableServiceException;
 import caio.portfolio.design_pattern.domain.model.interfaces.exception.ExceptionResponseFactory;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 
-@Log4j2
 @RestControllerAdvice
 @RequiredArgsConstructor
 public class ServiceExceptionHandlerController {

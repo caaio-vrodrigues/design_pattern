@@ -13,9 +13,7 @@ import caio.portfolio.design_pattern.domain.exception.salable_component.kit.kit_
 import caio.portfolio.design_pattern.domain.exception.salable_component.kit.kit_item.KitItemAlreadyExistsException;
 import caio.portfolio.design_pattern.domain.model.interfaces.exception.ExceptionResponseFactory;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 
-@Log4j2
 @RestControllerAdvice
 @RequiredArgsConstructor
 public class KitExceptionHandlerController {

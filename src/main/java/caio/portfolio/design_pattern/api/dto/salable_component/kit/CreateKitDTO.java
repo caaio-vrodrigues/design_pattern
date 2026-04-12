@@ -5,6 +5,7 @@ import java.util.List;
 import caio.portfolio.design_pattern.api.dto.salable_component.CreateSalableComponentDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateKitCommand;
 import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateLinkedKitItemCommand;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;
@@ -22,7 +23,7 @@ public class CreateKitDTO extends CreateSalableComponentDTO {
 	@Positive @NotNull
 	private Integer units;
 	
-	@NotNull
+	@Valid @NotNull
 	private List<CreateLinkedKitItemDTO> kitItemList;
 	
 	@Override

@@ -1,19 +1,19 @@
-package caio.portfolio.design_pattern.infrastructure.adapter.exception;
+package caio.portfolio.design_pattern.api.controller.exception;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import caio.portfolio.design_pattern.domain.model.interfaces.exception.ExceptionResponseFactory;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-@Component
-public class ExceptionResponseFactoryImpl implements ExceptionResponseFactory {
-
+@RestControllerAdvice
+public class UnexpectedExceptionController {
+	
 	private ProblemDetail setProperties(
 		ProblemDetail problemDetail, 
 		String traceId
@@ -23,14 +23,13 @@ public class ExceptionResponseFactoryImpl implements ExceptionResponseFactory {
 		return problemDetail;
 	}
 		
-	@Override
-	public ProblemDetail createProblemDetailAndLog(
+	private ProblemDetail createProblemDetailAndLog(
 		RuntimeException e, HttpStatus status, String title
 	) {
 		String traceId = UUID.randomUUID().toString();
 		ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
 			status, 
-			e.getMessage()
+			"Falha interna, acione o suporte."
 		);
 		problemDetail.setTitle(title);
 		log.warn("traceId={} error={}", traceId, e.getMessage());
@@ -38,5 +37,11 @@ public class ExceptionResponseFactoryImpl implements ExceptionResponseFactory {
 			problemDetail, 
 			traceId
 		);
+	}
+
+	@ExceptionHandler(RuntimeException.class)
+	public ProblemDetail handleRuntimeException(RuntimeException e) {
+		String title = "Falha inesperada";
+		return createProblemDetailAndLog(e, HttpStatus.INTERNAL_SERVER_ERROR, title);
 	}
 }
