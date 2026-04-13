@@ -50,8 +50,9 @@ public class Kit extends SalableComponent {
 
 	@Override
 	public BigDecimal getPrice() {
-		// TODO 
-		return null;
+		return kitItemList.stream().map(kitItem -> kitItem.getSalableComponent().getPrice()
+			.multiply(BigDecimal.valueOf(kitItem.getSalableComponentQuantity())))
+			.reduce(BigDecimal.ZERO, BigDecimal::add);
 	}
 	
 	public void decreaseUnits(Integer requiredQuantity) {
