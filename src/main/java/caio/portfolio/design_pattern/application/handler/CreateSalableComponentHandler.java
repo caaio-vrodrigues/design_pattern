@@ -3,6 +3,7 @@ package caio.portfolio.design_pattern.application.handler;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import caio.portfolio.design_pattern.application.dto.ResponseKitDTO;
 import caio.portfolio.design_pattern.application.dto.ResponseSalableComponentDTO;
@@ -13,7 +14,6 @@ import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalCompone
 import caio.portfolio.design_pattern.domain.model.interfaces.ConventionalComponentValidator;
 import caio.portfolio.design_pattern.domain.model.interfaces.KitComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.KitComponentValidator;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service

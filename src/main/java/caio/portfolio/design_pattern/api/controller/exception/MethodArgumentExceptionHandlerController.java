@@ -27,15 +27,17 @@ public class MethodArgumentExceptionHandlerController {
 	}
 	
 	private List<String> getBindingResultList(List<FieldError> fieldErrors){
-		return fieldErrors.stream().map(error -> {
-			String field = error.getField();			
+		return fieldErrors.stream().map(error -> {					
 			String msg = switch(error.getCode()) {
 				case "NotBlank" -> "não pode ser vazio";
 				case "NotNull" -> "não pode ser nulo";
+				case "NotEmpty" -> "não pode ser vazia";
 				case "Positive" -> "deve ser maior que zero";
 				default -> error.getDefaultMessage();
-			};			
-			return "O campo: `"+field+"` "+msg+".";
+			};
+			String msgList = "A lista: `"+error.getField()+"` "+msg+".";
+			String msgField = "O campo: `"+error.getField()+"` "+msg+".";
+			return error.getCode().equals("NotEmpty") ? msgList : msgField;
 		})
 		.toList();
 	}
