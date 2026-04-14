@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import caio.portfolio.design_pattern.application.dto.ResponseSalableComponentQuoteDTO;
-import caio.portfolio.design_pattern.domain.command.quote.CreateSalableComponentQuoteCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.quote.CreateSalableComponentQuoteCommand;
 
 @Service
 public class CreateQuoteHandler {

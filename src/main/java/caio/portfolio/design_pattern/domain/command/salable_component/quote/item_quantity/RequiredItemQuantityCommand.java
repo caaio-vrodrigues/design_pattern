@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.domain.command.quote;
+package caio.portfolio.design_pattern.domain.command.salable_component.quote.item_quantity;
 
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import lombok.AccessLevel;
@@ -11,9 +11,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @SuperBuilder
 @Getter
-public abstract class RequiredSalableComponentQuantityCommand {
+public abstract class RequiredItemQuantityCommand {
 
-	private Long requiredSalableComponentId;
+	private Long requiredItemId;
 	private Integer quantity;
 	
 	public abstract SalableComponentType getType();

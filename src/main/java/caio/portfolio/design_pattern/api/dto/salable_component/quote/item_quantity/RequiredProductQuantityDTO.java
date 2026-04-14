@@ -1,6 +1,6 @@
-package caio.portfolio.design_pattern.api.dto.quote;
+package caio.portfolio.design_pattern.api.dto.salable_component.quote.item_quantity;
 
-import caio.portfolio.design_pattern.domain.command.quote.RequiredProductQuantityCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.quote.item_quantity.RequiredProductQuantityCommand;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;
@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @SuperBuilder
 @Getter
-public class RequiredProductQuantityDTO extends RequiredSalableComponentQuantityDTO {
+public class RequiredProductQuantityDTO extends RequiredItemQuantityDTO {
 	
 	@Positive @NotNull
 	private Integer quantity;
@@ -21,7 +21,7 @@ public class RequiredProductQuantityDTO extends RequiredSalableComponentQuantity
 	@Override
 	public RequiredProductQuantityCommand toCommand() {
 		return RequiredProductQuantityCommand.builder()
-			.requiredSalableComponentId(getRequiredSalableComponentId())
+			.requiredItemId(getRequiredItemId())
 			.quantity(quantity)
 			.build();
 	}

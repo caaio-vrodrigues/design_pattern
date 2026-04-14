@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.api.dto.quote;
+package caio.portfolio.design_pattern.api.dto.salable_component.quote.item_quantity;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
-import caio.portfolio.design_pattern.domain.command.quote.RequiredSalableComponentQuantityCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.quote.item_quantity.RequiredItemQuantityCommand;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;
@@ -25,10 +25,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @SuperBuilder
 @Getter
-public abstract class RequiredSalableComponentQuantityDTO {
+public abstract class RequiredItemQuantityDTO {
 
 	@Positive @NotNull
-	private Long requiredSalableComponentId;
+	private Long requiredItemId;
 	
-	public abstract RequiredSalableComponentQuantityCommand toCommand();
+	public abstract RequiredItemQuantityCommand toCommand();
 }

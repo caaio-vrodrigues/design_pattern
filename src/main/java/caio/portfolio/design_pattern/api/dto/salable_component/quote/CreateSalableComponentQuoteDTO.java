@@ -1,9 +1,10 @@
-package caio.portfolio.design_pattern.api.dto.quote;
+package caio.portfolio.design_pattern.api.dto.salable_component.quote;
 
 import java.util.List;
 
-import caio.portfolio.design_pattern.domain.command.quote.CreateSalableComponentQuoteCommand;
-import caio.portfolio.design_pattern.domain.command.quote.RequiredSalableComponentQuantityCommand;
+import caio.portfolio.design_pattern.api.dto.salable_component.quote.item_quantity.RequiredItemQuantityDTO;
+import caio.portfolio.design_pattern.domain.command.salable_component.quote.CreateSalableComponentQuoteCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.quote.item_quantity.RequiredItemQuantityCommand;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AccessLevel;
@@ -19,10 +20,10 @@ import lombok.NoArgsConstructor;
 public class CreateSalableComponentQuoteDTO {
 	
 	@Valid @NotEmpty
-	private List<RequiredSalableComponentQuantityDTO> requiredSalableComponentQuantityDTOList;
+	private List<RequiredItemQuantityDTO> requiredSalableComponentQuantityDTOList;
 
 	public CreateSalableComponentQuoteCommand toCommand() {
-		List<RequiredSalableComponentQuantityCommand> commandList = requiredSalableComponentQuantityDTOList
+		List<RequiredItemQuantityCommand> commandList = requiredSalableComponentQuantityDTOList
 			.stream().map(dto -> dto.toCommand()).toList();
 		return CreateSalableComponentQuoteCommand.builder()
 			.requiredSalableComponentQuantityCommandList(commandList)

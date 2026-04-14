@@ -1,7 +1,8 @@
-package caio.portfolio.design_pattern.domain.command.quote;
+package caio.portfolio.design_pattern.domain.command.salable_component.quote;
 
 import java.util.List;
 
+import caio.portfolio.design_pattern.domain.command.salable_component.quote.item_quantity.RequiredItemQuantityCommand;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,5 +15,5 @@ import lombok.NoArgsConstructor;
 @Getter
 public class CreateSalableComponentQuoteCommand {
 	
-	private List<RequiredSalableComponentQuantityCommand> requiredSalableComponentQuantityCommandList;
+	private List<RequiredItemQuantityCommand> requiredSalableComponentQuantityCommandList;
 }
