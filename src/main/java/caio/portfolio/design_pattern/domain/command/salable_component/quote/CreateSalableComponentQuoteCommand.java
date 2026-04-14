@@ -15,5 +15,5 @@ import lombok.NoArgsConstructor;
 @Getter
 public class CreateSalableComponentQuoteCommand {
 	
-	private List<RequiredItemQuantityCommand> requiredSalableComponentQuantityCommandList;
+	private List<RequiredItemQuantityCommand> requiredItemQuantityCommandList;
 }

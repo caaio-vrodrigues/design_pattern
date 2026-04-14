@@ -20,13 +20,14 @@ import lombok.NoArgsConstructor;
 public class CreateSalableComponentQuoteDTO {
 	
 	@Valid @NotEmpty
-	private List<RequiredItemQuantityDTO> requiredSalableComponentQuantityDTOList;
+	private List<RequiredItemQuantityDTO> requiredItemQuantityDTOList;
 
 	public CreateSalableComponentQuoteCommand toCommand() {
-		List<RequiredItemQuantityCommand> commandList = requiredSalableComponentQuantityDTOList
-			.stream().map(dto -> dto.toCommand()).toList();
+		List<RequiredItemQuantityCommand> commandList = requiredItemQuantityDTOList
+			.stream().map(dto -> dto.toCommand())
+			.toList();
 		return CreateSalableComponentQuoteCommand.builder()
-			.requiredSalableComponentQuantityCommandList(commandList)
+			.requiredItemQuantityCommandList(commandList)
 			.build();
 	}
 }

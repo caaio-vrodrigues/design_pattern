@@ -15,6 +15,8 @@ import caio.portfolio.design_pattern.domain.model.interfaces.LinkedKitItemCreato
 import caio.portfolio.design_pattern.domain.model.interfaces.LinkedKitItemValidator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentFinder;
+import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentQuoteCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentQuoteValidator;
 import caio.portfolio.design_pattern.domain.model.interfaces.SalableComponentValidator;
 
 @Configuration
@@ -62,6 +64,24 @@ public class GlobalConfig {
 	) {
 		return creators.stream().collect(Collectors.toMap(
 			LinkedKitItemCreator::getType, 
+			Function.identity()));
+	}
+	
+	@Bean
+	public Map<SalableComponentType, SalableComponentQuoteValidator<?>> salableComponentQuoteValidators(
+		List<SalableComponentQuoteValidator<?>> validators
+	) {
+		return validators.stream().collect(Collectors.toMap(
+			SalableComponentQuoteValidator::getType, 
+			Function.identity()));
+	}
+	
+	@Bean
+	public Map<SalableComponentType, SalableComponentQuoteCreator<?>> salableComponentQuoteCreators(
+		List<SalableComponentQuoteCreator<?>> creators
+	) {
+		return creators.stream().collect(Collectors.toMap(
+			SalableComponentQuoteCreator::getType, 
 			Function.identity()));
 	}
 }
