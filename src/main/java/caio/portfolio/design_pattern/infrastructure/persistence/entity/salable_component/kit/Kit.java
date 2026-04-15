@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import caio.portfolio.design_pattern.domain.exception.salable_component.kit.InsufficientKitUnitsException;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.SalableComponent;
+import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.kit.linked_item.KitItem;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

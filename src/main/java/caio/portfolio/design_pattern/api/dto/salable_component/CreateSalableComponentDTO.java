@@ -6,9 +6,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
+import caio.portfolio.design_pattern.api.dto.salable_component.conventional.product.CreateProductDTO;
+import caio.portfolio.design_pattern.api.dto.salable_component.conventional.service.CreateServiceDTO;
 import caio.portfolio.design_pattern.api.dto.salable_component.kit.CreateKitDTO;
-import caio.portfolio.design_pattern.api.dto.salable_component.product.CreateProductDTO;
-import caio.portfolio.design_pattern.api.dto.salable_component.service.CreateServiceDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.CreateSalableComponentCommand;
 import lombok.AccessLevel;
 import lombok.Getter;

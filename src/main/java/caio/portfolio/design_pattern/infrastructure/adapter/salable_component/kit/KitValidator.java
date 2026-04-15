@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 import caio.portfolio.design_pattern.domain.exception.salable_component.kit.KitAlreadyExistsException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
-import caio.portfolio.design_pattern.domain.model.interfaces.KitComponentValidator;
-import caio.portfolio.design_pattern.infrastructure.persistence.repository.KitRepository;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.KitComponentValidator;
+import caio.portfolio.design_pattern.infrastructure.persistence.repository.salable_component.kit.KitRepository;
 import lombok.RequiredArgsConstructor;
 
 @Component

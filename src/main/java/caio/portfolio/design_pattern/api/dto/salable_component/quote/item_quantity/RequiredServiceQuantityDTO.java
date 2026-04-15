@@ -1,6 +1,6 @@
 package caio.portfolio.design_pattern.api.dto.salable_component.quote.item_quantity;
 
-import caio.portfolio.design_pattern.domain.command.salable_component.quote.item_quantity.RequiredServiceQuantityCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.quote.item_quantity.conventional.RequiredServiceQuantityCommand;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

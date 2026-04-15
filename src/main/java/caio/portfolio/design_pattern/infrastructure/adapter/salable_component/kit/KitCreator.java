@@ -6,17 +6,17 @@ import java.util.List;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 
-import caio.portfolio.design_pattern.application.dto.ResponseKitDTO;
-import caio.portfolio.design_pattern.application.dto.ResponseKitItemDTO;
-import caio.portfolio.design_pattern.application.handler.CreateKitItemHandler;
+import caio.portfolio.design_pattern.application.dto.salable_component.kit.ResponseKitDTO;
+import caio.portfolio.design_pattern.application.dto.salable_component.kit.kit_item.ResponseKitItemDTO;
+import caio.portfolio.design_pattern.application.handler.salable_component.kit.linked_item.CreateLinkedKitItemHandler;
 import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateKitCommand;
 import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateLinkedKitItemCommand;
 import caio.portfolio.design_pattern.domain.exception.salable_component.kit.ConcurrentKitException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
-import caio.portfolio.design_pattern.domain.model.interfaces.KitComponentCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.KitComponentCreator;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.kit.Kit;
-import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.kit.KitItem;
-import caio.portfolio.design_pattern.infrastructure.persistence.repository.KitRepository;
+import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.kit.linked_item.KitItem;
+import caio.portfolio.design_pattern.infrastructure.persistence.repository.salable_component.kit.KitRepository;
 import lombok.RequiredArgsConstructor;
 
 @Component
@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class KitCreator implements KitComponentCreator {
 	
 	private final KitRepository repo;
-	private final CreateKitItemHandler createKitItemHandler;
+	private final CreateLinkedKitItemHandler createKitItemHandler;
 	
 	private Kit saveKit(Kit kit) {
 		try {
