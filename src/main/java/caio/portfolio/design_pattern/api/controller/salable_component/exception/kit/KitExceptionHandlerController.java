@@ -1,5 +1,7 @@
 package caio.portfolio.design_pattern.api.controller.salable_component.exception.kit;
 
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,6 +16,7 @@ import caio.portfolio.design_pattern.domain.exception.salable_component.kit.kit_
 import caio.portfolio.design_pattern.domain.model.interfaces.exception.ExceptionResponseFactory;
 import lombok.RequiredArgsConstructor;
 
+@Order(Ordered.HIGHEST_PRECEDENCE)
 @RestControllerAdvice
 @RequiredArgsConstructor
 public class KitExceptionHandlerController {
