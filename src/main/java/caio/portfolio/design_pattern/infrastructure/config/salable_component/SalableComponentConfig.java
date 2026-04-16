@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.infrastructure.config;
+package caio.portfolio.design_pattern.infrastructure.config.salable_component;
 
 import java.util.List;
 import java.util.Map;
