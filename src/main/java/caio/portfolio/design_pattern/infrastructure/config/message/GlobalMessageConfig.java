@@ -15,7 +15,8 @@ public class GlobalMessageConfig {
 		messageSource.setDefaultEncoding("UTF-8");
 		messageSource.setAlwaysUseMessageFormat(true);
 		messageSource.setBasenames(
-			"classpath:message/salable_component_msg"
+			"classpath:message/salable_component/salable_component_msg",
+			"classpath:message/salable_component/product_msg"
 		);
 		return messageSource;
 	}

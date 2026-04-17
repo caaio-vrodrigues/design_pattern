@@ -6,6 +6,7 @@ import caio.portfolio.design_pattern.domain.command.salable_component.convention
 import caio.portfolio.design_pattern.domain.exception.salable_component.conventional.product.ProductAlreadyExistsException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.ConventionalComponentValidator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.message.ProductMessageCreator;
 import caio.portfolio.design_pattern.infrastructure.persistence.repository.salable_component.conventional.ProductRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -14,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 public class ProductValidator implements ConventionalComponentValidator<CreateProductCommand> {
 	
 	private final ProductRepository repo;
+	private final ProductMessageCreator productMessageCreator;
 	
 	@Override
 	public void validateSalableComponent(CreateProductCommand command) {
@@ -21,8 +23,13 @@ public class ProductValidator implements ConventionalComponentValidator<CreatePr
 			command.getName(), 
 			command.getBrand(), 
 			command.getModel());
-		if(productAlreadyExists)
-			throw new ProductAlreadyExistsException("Falha de duplicação ao tentar salvar novo `Product`: [name: `"+command.getName()+"`; brand: `"+command.getBrand()+"`; model: `"+command.getModel()+"`].");
+		if(productAlreadyExists) {
+			String exceptionMsg = productMessageCreator.getProductAlreadyExistsMsg(
+				command.getName(), 
+				command.getBrand(), 
+				command.getModel());
+			throw new ProductAlreadyExistsException(exceptionMsg);
+		}			
 	}
 
 	@Override

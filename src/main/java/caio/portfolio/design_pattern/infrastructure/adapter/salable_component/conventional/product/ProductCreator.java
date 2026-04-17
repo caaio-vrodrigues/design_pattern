@@ -8,6 +8,7 @@ import caio.portfolio.design_pattern.domain.command.salable_component.convention
 import caio.portfolio.design_pattern.domain.exception.salable_component.conventional.product.ConcurrentProductException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.ConventionalComponentCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.message.ProductMessageCreator;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.conventional.Product;
 import caio.portfolio.design_pattern.infrastructure.persistence.repository.salable_component.conventional.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,13 +20,17 @@ public class ProductCreator implements ConventionalComponentCreator<
 	ResponseProductDTO
 > {	
 	private final ProductRepository repo;
+	private final ProductMessageCreator productMessageCreator;
 	
 	private Product saveProduct(Product product) {
 		try {
 			return repo.save(product);
 		}
 		catch(DataIntegrityViolationException e) {
-			throw new ConcurrentProductException("Não foi possível completar a operação. Falha interna desconhecida.");
+			String entityName = product.getClass().getName();
+			String exceptionMsg = productMessageCreator
+				.getConcurrentEntityMsg(entityName);
+			throw new ConcurrentProductException(exceptionMsg);
 		}
 	}
 	
@@ -51,7 +56,7 @@ public class ProductCreator implements ConventionalComponentCreator<
 			.price(command.getPrice())
 			.units(command.getUnits())
 			.build();
-		newProduct = saveProduct(newProduct);
+		saveProduct(newProduct);
 		return toRespDTO(newProduct);
 	}
 
