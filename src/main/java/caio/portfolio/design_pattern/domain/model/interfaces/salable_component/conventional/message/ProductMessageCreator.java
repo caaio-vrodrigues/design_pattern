@@ -1,6 +1,6 @@
 package caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.message;
 
-import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.message.SalableComponentMessageCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.SalableComponentMessageCreator;
 
 public interface ProductMessageCreator extends SalableComponentMessageCreator {
 

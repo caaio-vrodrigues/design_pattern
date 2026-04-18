@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.domain.model.interfaces.salable_component.message;
+package caio.portfolio.design_pattern.domain.model.interfaces.salable_component;
 
 public interface SalableComponentMessageCreator {
 
