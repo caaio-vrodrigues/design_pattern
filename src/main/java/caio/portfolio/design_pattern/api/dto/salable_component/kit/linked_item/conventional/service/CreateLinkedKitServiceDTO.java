@@ -1,5 +1,6 @@
-package caio.portfolio.design_pattern.api.dto.salable_component.kit.linked_item;
+package caio.portfolio.design_pattern.api.dto.salable_component.kit.linked_item.conventional.service;
 
+import caio.portfolio.design_pattern.api.dto.salable_component.kit.linked_item.CreateLinkedKitItemDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateLinkedKitServiceCommand;
 import lombok.AccessLevel;
 import lombok.Getter;

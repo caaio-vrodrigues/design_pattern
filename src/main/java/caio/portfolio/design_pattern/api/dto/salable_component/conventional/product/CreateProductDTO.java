@@ -2,8 +2,6 @@ package caio.portfolio.design_pattern.api.dto.salable_component.conventional.pro
 
 import java.math.BigDecimal;
 
-import org.springframework.context.MessageSource;
-
 import caio.portfolio.design_pattern.api.dto.salable_component.CreateSalableComponentDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.conventional.product.CreateProductCommand;
 import jakarta.validation.constraints.NotBlank;
@@ -20,8 +18,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Getter
 public class CreateProductDTO extends CreateSalableComponentDTO {
-	
-	private MessageSource messageSource;
 	
 	@NotBlank 
 	private String name;	

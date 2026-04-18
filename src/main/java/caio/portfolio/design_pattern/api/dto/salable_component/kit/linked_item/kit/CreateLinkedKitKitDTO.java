@@ -1,5 +1,6 @@
-package caio.portfolio.design_pattern.api.dto.salable_component.kit.linked_item;
+package caio.portfolio.design_pattern.api.dto.salable_component.kit.linked_item.kit;
 
+import caio.portfolio.design_pattern.api.dto.salable_component.kit.linked_item.CreateLinkedKitItemDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateLinkedKitKitCommand;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
