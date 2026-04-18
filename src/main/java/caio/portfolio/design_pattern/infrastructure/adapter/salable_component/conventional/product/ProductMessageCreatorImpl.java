@@ -30,7 +30,7 @@ public class ProductMessageCreatorImpl implements ProductMessageCreator {
 	}
 
 	@Override
-	public String getNotFoundEntityById(String entityName, Long id) {
+	public String getEntityNotFoundByIdMsg(String entityName, Long id) {
 		return salableComponentMessageSource.getMessage(
 			"not_found.entityName.id",
 			new Object[] {entityName, id}, 

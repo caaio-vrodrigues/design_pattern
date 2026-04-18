@@ -21,7 +21,7 @@ public class ServiceFinder implements SalableComponentFinder<Service> {
 	public Service findSalableComponent(Long id) {
 		String entityName = Service.class.getName();
 		String exceptionMsg = serviceMessageCreator
-			.getNotFoundEntityById(entityName, id);
+			.getEntityNotFoundByIdMsg(entityName, id);
 		return repo.findById(id).orElseThrow(() -> 
 			new ServiceNotFoundException(exceptionMsg));
 	}

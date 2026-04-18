@@ -21,7 +21,7 @@ public class KitFinder implements SalableComponentFinder<Kit> {
 	public Kit findSalableComponent(Long id) {
 		String entityName = Kit.class.getName();
 		String exceptionMsg = kitMessageCreator
-			.getNotFoundEntityById(entityName, id);
+			.getEntityNotFoundByIdMsg(entityName, id);
 		return repo.findById(id)
 			.orElseThrow(() -> new KitNotFoundException(exceptionMsg));
 	}

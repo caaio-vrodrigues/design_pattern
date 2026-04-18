@@ -21,7 +21,7 @@ public class ProductFinder implements SalableComponentFinder<Product> {
 	public Product findSalableComponent(Long id) {
 		String entityName = Product.class.getName();
 		String exceptionMsg = productMessageCreator
-			.getNotFoundEntityById(entityName, id);
+			.getEntityNotFoundByIdMsg(entityName, id);
 		return repo.findById(id).orElseThrow(() -> 
 			new ProductNotFoundException(exceptionMsg));
 	}
