@@ -4,4 +4,5 @@ import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.S
 
 public interface KitMessageCreator extends SalableComponentMessageCreator {
 
+	String getKitAlreadyExistsMsg(String code);
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import caio.portfolio.design_pattern.domain.exception.salable_component.kit.KitAlreadyExistsException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.KitComponentValidator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.message.KitMessageCreator;
 import caio.portfolio.design_pattern.infrastructure.persistence.repository.salable_component.kit.KitRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -13,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 public class KitValidator implements KitComponentValidator {
 	
 	private final KitRepository repo;
+	private final KitMessageCreator kitMessageCreator;
 	
 	private String generateCode() {
 		Long maxId = repo.findMaxId();
@@ -21,8 +23,11 @@ public class KitValidator implements KitComponentValidator {
 	}
 	
 	private void validateCode(String code) {
-		if(repo.existsByCode(code))
-			throw new KitAlreadyExistsException("Falha de duplicidade ao tentar criar `Kit`: [code: `"+code+"`].");
+		if(repo.existsByCode(code)) {
+			String exceptionMsg = kitMessageCreator
+				.getKitAlreadyExistsMsg(code);
+			throw new KitAlreadyExistsException(exceptionMsg);
+		}	
 	}
 
 	@Override

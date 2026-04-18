@@ -14,6 +14,7 @@ import caio.portfolio.design_pattern.domain.command.salable_component.kit.Create
 import caio.portfolio.design_pattern.domain.exception.salable_component.kit.ConcurrentKitException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.KitComponentCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.message.KitMessageCreator;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.kit.Kit;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.kit.linked_item.KitItem;
 import caio.portfolio.design_pattern.infrastructure.persistence.repository.salable_component.kit.KitRepository;
@@ -25,13 +26,17 @@ public class KitCreator implements KitComponentCreator {
 	
 	private final KitRepository repo;
 	private final CreateLinkedKitItemHandler createKitItemHandler;
+	private final KitMessageCreator kitMessageCreator;
 	
 	private Kit saveKit(Kit kit) {
 		try {
 			return repo.save(kit);
 		}
 		catch(DataIntegrityViolationException e) {
-			throw new ConcurrentKitException("Não foi possível salvar novo `Kit`: [code: `"+kit.getCode()+"`]. Falha interna desconhecida.");
+			String entityName = Kit.class.getName();
+			String exceptionMsg = kitMessageCreator
+				.getConcurrentEntityMsg(entityName);
+			throw new ConcurrentKitException(exceptionMsg);
 		}
 	}
 	
