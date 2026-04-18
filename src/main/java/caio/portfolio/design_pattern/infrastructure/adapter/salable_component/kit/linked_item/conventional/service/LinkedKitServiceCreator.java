@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.infrastructure.adapter.salable_component.kit.linked_item;
+package caio.portfolio.design_pattern.infrastructure.adapter.salable_component.kit.linked_item.conventional.service;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
