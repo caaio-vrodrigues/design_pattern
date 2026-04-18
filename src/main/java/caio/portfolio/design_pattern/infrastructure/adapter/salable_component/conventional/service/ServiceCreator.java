@@ -8,6 +8,7 @@ import caio.portfolio.design_pattern.domain.command.salable_component.convention
 import caio.portfolio.design_pattern.domain.exception.salable_component.conventional.service.ConcurrentServiceException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.ConventionalComponentCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.message.ServiceMessageCreator;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.conventional.Service;
 import caio.portfolio.design_pattern.infrastructure.persistence.repository.salable_component.conventional.ServiceRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +19,17 @@ public class ServiceCreator implements ConventionalComponentCreator<
 	CreateServiceCommand, ResponseServiceDTO
 > {	
 	private final ServiceRepository repo;
+	private final ServiceMessageCreator serviceMessageCreator;
 	
 	private Service saveService(Service service) {
 		try {
 			return repo.save(service);
 		}
 		catch(DataIntegrityViolationException e) {
-			throw new ConcurrentServiceException("Não foi possível completar a operação. Falha interna desconhecida.");
+			String entityName = Service.class.getName();
+			String exceptionMsg = serviceMessageCreator
+				.getConcurrentEntityMsg(entityName);
+			throw new ConcurrentServiceException(exceptionMsg);
 		}
 	}
 	

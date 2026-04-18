@@ -16,7 +16,8 @@ public class GlobalMessageConfig {
 		messageSource.setAlwaysUseMessageFormat(true);
 		messageSource.setBasenames(
 			"classpath:message/salable_component/salable_component_msg",
-			"classpath:message/salable_component/product_msg"
+			"classpath:message/salable_component/product_msg",
+			"classpath:message/salable_component/service_msg"
 		);
 		return messageSource;
 	}
