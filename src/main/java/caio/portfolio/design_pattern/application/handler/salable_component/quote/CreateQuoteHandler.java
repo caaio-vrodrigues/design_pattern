@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import caio.portfolio.design_pattern.application.dto.salable_component.quote.ResponseSalableComponentQuoteDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.quote.CreateSalableComponentQuoteCommand;
-import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
+import caio.portfolio.design_pattern.domain.model.enums.salable_component.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.SalableComponentFinder;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.quote.SalableComponentQuoteCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.quote.SalableComponentQuoteValidator;

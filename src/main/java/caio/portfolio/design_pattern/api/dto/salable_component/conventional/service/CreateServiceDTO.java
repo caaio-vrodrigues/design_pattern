@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import caio.portfolio.design_pattern.api.dto.salable_component.CreateSalableComponentDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.conventional.service.CreateServiceCommand;
-import caio.portfolio.design_pattern.domain.model.enums.ServiceCategory;
+import caio.portfolio.design_pattern.domain.model.enums.salable_component.conventional.service.ServiceCategory;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

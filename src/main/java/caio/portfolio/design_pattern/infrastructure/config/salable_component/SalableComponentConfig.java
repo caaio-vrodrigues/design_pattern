@@ -8,14 +8,14 @@ import java.util.stream.Collectors;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
+import caio.portfolio.design_pattern.domain.model.enums.salable_component.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.SalableComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.SalableComponentFinder;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.SalableComponentValidator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.composite.kit.linked_item.LinkedKitItemCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.composite.kit.linked_item.LinkedKitItemValidator;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.ConventionalComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.ConventionalComponentValidator;
-import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.linked_item.LinkedKitItemCreator;
-import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.linked_item.LinkedKitItemValidator;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.quote.SalableComponentQuoteCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.quote.SalableComponentQuoteValidator;
 

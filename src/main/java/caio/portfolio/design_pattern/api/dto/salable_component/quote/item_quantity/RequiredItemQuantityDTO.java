@@ -6,9 +6,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
+import caio.portfolio.design_pattern.api.dto.salable_component.quote.item_quantity.composite.kit.RequiredKitQuantityDTO;
 import caio.portfolio.design_pattern.api.dto.salable_component.quote.item_quantity.conventional.product.RequiredProductQuantityDTO;
 import caio.portfolio.design_pattern.api.dto.salable_component.quote.item_quantity.conventional.service.RequiredServiceQuantityDTO;
-import caio.portfolio.design_pattern.api.dto.salable_component.quote.item_quantity.kit.RequiredKitQuantityDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.quote.item_quantity.RequiredItemQuantityCommand;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

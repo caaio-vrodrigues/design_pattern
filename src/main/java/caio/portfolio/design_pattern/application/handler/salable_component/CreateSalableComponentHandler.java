@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import caio.portfolio.design_pattern.application.dto.salable_component.ResponseSalableComponentDTO;
-import caio.portfolio.design_pattern.application.dto.salable_component.kit.ResponseKitDTO;
+import caio.portfolio.design_pattern.application.dto.salable_component.composite.kit.ResponseKitDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.CreateSalableComponentCommand;
-import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateKitCommand;
-import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
+import caio.portfolio.design_pattern.domain.command.salable_component.composite.kit.CreateKitCommand;
+import caio.portfolio.design_pattern.domain.model.enums.salable_component.SalableComponentType;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.composite.kit.KitComponentCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.composite.kit.KitComponentValidator;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.ConventionalComponentCreator;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.ConventionalComponentValidator;
-import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.KitComponentCreator;
-import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.KitComponentValidator;
 import lombok.RequiredArgsConstructor;
 
 @Service

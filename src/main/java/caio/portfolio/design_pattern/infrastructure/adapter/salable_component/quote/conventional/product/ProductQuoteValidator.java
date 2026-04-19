@@ -3,7 +3,7 @@ package caio.portfolio.design_pattern.infrastructure.adapter.salable_component.q
 import org.springframework.stereotype.Component;
 
 import caio.portfolio.design_pattern.domain.exception.salable_component.conventional.product.InsufficientProductUnitsException;
-import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
+import caio.portfolio.design_pattern.domain.model.enums.salable_component.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.quote.SalableComponentQuoteValidator;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.conventional.Product;
 

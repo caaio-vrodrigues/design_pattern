@@ -4,7 +4,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
-import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.message.ProductMessageCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.message.product.ProductMessageCreator;
 import lombok.RequiredArgsConstructor;
 
 @Component

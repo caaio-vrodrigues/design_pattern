@@ -3,8 +3,8 @@ package caio.portfolio.design_pattern.domain.command.salable_component.conventio
 import java.math.BigDecimal;
 
 import caio.portfolio.design_pattern.domain.command.salable_component.CreateSalableComponentCommand;
-import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
-import caio.portfolio.design_pattern.domain.model.enums.ServiceCategory;
+import caio.portfolio.design_pattern.domain.model.enums.salable_component.SalableComponentType;
+import caio.portfolio.design_pattern.domain.model.enums.salable_component.conventional.service.ServiceCategory;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

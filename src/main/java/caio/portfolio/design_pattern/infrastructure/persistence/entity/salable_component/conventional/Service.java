@@ -2,7 +2,7 @@ package caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_
 
 import java.math.BigDecimal;
 
-import caio.portfolio.design_pattern.domain.model.enums.ServiceCategory;
+import caio.portfolio.design_pattern.domain.model.enums.salable_component.conventional.service.ServiceCategory;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.SalableComponent;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

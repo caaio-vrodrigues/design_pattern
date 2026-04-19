@@ -3,7 +3,7 @@ package caio.portfolio.design_pattern.infrastructure.persistence.repository.sala
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import caio.portfolio.design_pattern.domain.model.enums.ServiceCategory;
+import caio.portfolio.design_pattern.domain.model.enums.salable_component.conventional.service.ServiceCategory;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.conventional.Service;
 
 @Repository
