@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import caio.portfolio.design_pattern.api.dto.salable_component.kit.linked_item.conventional.product.CreateLinkedKitProductDTO;
 import caio.portfolio.design_pattern.api.dto.salable_component.kit.linked_item.conventional.service.CreateLinkedKitServiceDTO;
 import caio.portfolio.design_pattern.api.dto.salable_component.kit.linked_item.kit.CreateLinkedKitKitDTO;
-import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateLinkedKitItemCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.kit.linked_item.CreateLinkedKitItemCommand;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;

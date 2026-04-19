@@ -1,7 +1,7 @@
 package caio.portfolio.design_pattern.api.dto.salable_component.kit.linked_item.conventional.product;
 
 import caio.portfolio.design_pattern.api.dto.salable_component.kit.linked_item.CreateLinkedKitItemDTO;
-import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateLinkedKitProductCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.kit.linked_item.conventional.product.CreateLinkedKitProductCommand;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;

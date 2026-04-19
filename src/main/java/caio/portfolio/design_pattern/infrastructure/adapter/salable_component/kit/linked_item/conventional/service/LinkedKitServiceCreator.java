@@ -3,7 +3,7 @@ package caio.portfolio.design_pattern.infrastructure.adapter.salable_component.k
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 
-import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateLinkedKitServiceCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.kit.linked_item.conventional.service.CreateLinkedKitServiceCommand;
 import caio.portfolio.design_pattern.domain.exception.salable_component.kit.kit_item.ConcurrentKitItemException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.linked_item.LinkedKitItemCreator;

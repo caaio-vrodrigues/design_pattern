@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.domain.command.salable_component.kit;
+package caio.portfolio.design_pattern.domain.command.salable_component.kit.linked_item;
 
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import lombok.AccessLevel;

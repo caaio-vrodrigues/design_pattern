@@ -10,7 +10,7 @@ import caio.portfolio.design_pattern.application.dto.salable_component.kit.Respo
 import caio.portfolio.design_pattern.application.dto.salable_component.kit.kit_item.ResponseKitItemDTO;
 import caio.portfolio.design_pattern.application.handler.salable_component.kit.linked_item.CreateLinkedKitItemHandler;
 import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateKitCommand;
-import caio.portfolio.design_pattern.domain.command.salable_component.kit.CreateLinkedKitItemCommand;
+import caio.portfolio.design_pattern.domain.command.salable_component.kit.linked_item.CreateLinkedKitItemCommand;
 import caio.portfolio.design_pattern.domain.exception.salable_component.kit.ConcurrentKitException;
 import caio.portfolio.design_pattern.domain.model.enums.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.kit.KitComponentCreator;
