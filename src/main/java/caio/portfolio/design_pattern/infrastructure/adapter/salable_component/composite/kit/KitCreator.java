@@ -14,7 +14,7 @@ import caio.portfolio.design_pattern.domain.command.salable_component.composite.
 import caio.portfolio.design_pattern.domain.exception.salable_component.composite.kit.ConcurrentKitException;
 import caio.portfolio.design_pattern.domain.model.enums.salable_component.SalableComponentType;
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.composite.kit.KitComponentCreator;
-import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.composite.kit.message.KitMessageCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.composite.kit.KitMessageCreator;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.composite.kit.Kit;
 import caio.portfolio.design_pattern.infrastructure.persistence.entity.salable_component.composite.kit.linked_item.KitItem;
 import caio.portfolio.design_pattern.infrastructure.persistence.repository.salable_component.composite.kit.KitRepository;
