@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.api.controller.salable_component.exception.composite;
+package caio.portfolio.design_pattern.api.controller.salable_component.composite.kit.exception;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -13,13 +13,13 @@ import caio.portfolio.design_pattern.domain.exception.salable_component.composit
 import caio.portfolio.design_pattern.domain.exception.salable_component.composite.kit.KitNotFoundException;
 import caio.portfolio.design_pattern.domain.exception.salable_component.composite.kit.kit_item.ConcurrentKitItemException;
 import caio.portfolio.design_pattern.domain.exception.salable_component.composite.kit.kit_item.KitItemAlreadyExistsException;
-import caio.portfolio.design_pattern.domain.model.interfaces.exception.ExceptionResponseFactory;
+import caio.portfolio.design_pattern.domain.model.interfaces.global.exception.ExceptionResponseFactory;
 import lombok.RequiredArgsConstructor;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @RestControllerAdvice
 @RequiredArgsConstructor
-public class KitExceptionHandlerController {
+public class KitExceptionHandler {
 
 	private final ExceptionResponseFactory exceptionResponseFactory;
 	

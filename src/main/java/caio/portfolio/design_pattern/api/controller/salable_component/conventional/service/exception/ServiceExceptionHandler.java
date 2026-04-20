@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.api.controller.salable_component.exception.conventional;
+package caio.portfolio.design_pattern.api.controller.salable_component.conventional.service.exception;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -11,13 +11,13 @@ import caio.portfolio.design_pattern.domain.exception.salable_component.conventi
 import caio.portfolio.design_pattern.domain.exception.salable_component.conventional.service.ServiceAlreadyExistsException;
 import caio.portfolio.design_pattern.domain.exception.salable_component.conventional.service.ServiceNotFoundException;
 import caio.portfolio.design_pattern.domain.exception.salable_component.conventional.service.UnavailableServiceException;
-import caio.portfolio.design_pattern.domain.model.interfaces.exception.ExceptionResponseFactory;
+import caio.portfolio.design_pattern.domain.model.interfaces.global.exception.ExceptionResponseFactory;
 import lombok.RequiredArgsConstructor;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @RestControllerAdvice
 @RequiredArgsConstructor
-public class ServiceExceptionHandlerController {
+public class ServiceExceptionHandler {
 	
 	private final ExceptionResponseFactory exceptionResponseFactory;
 

@@ -18,7 +18,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @RestControllerAdvice
-public class MethodArgumentExceptionHandlerController {
+public class MethodArgumentExceptionHandler {
 	
 	private ProblemDetail setProperties(
 		ProblemDetail problemDetail, String traceId, List<String> errorList

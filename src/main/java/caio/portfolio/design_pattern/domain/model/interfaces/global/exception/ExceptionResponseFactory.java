@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.domain.model.interfaces.exception;
+package caio.portfolio.design_pattern.domain.model.interfaces.global.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;

@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.infrastructure.config.message;
+package caio.portfolio.design_pattern.infrastructure.config.salable_component;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
 @Configuration
-public class GlobalMessageConfig {
+public class SalableComponentMessageConfig {
 
 	@Bean
 	public MessageSource salableComponentMessageSource() {

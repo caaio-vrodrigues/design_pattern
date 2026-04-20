@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.infrastructure.adapter.exception;
+package caio.portfolio.design_pattern.infrastructure.adapter.global.exception;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.stereotype.Component;
 
-import caio.portfolio.design_pattern.domain.model.interfaces.exception.ExceptionResponseFactory;
+import caio.portfolio.design_pattern.domain.model.interfaces.global.exception.ExceptionResponseFactory;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2

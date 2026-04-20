@@ -20,7 +20,7 @@ import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.q
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.quote.SalableComponentQuoteValidator;
 
 @Configuration
-public class SalableComponentConfig {
+public class SalableComponentAdaptersConfig {
 
 	@Bean
 	public Map<SalableComponentType, ConventionalComponentValidator<?>> salableComponentValidators(

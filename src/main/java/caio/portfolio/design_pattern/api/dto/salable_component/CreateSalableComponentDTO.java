@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
-import caio.portfolio.design_pattern.api.dto.salable_component.composite.CreateKitDTO;
+import caio.portfolio.design_pattern.api.dto.salable_component.composite.kit.CreateKitDTO;
 import caio.portfolio.design_pattern.api.dto.salable_component.conventional.product.CreateProductDTO;
 import caio.portfolio.design_pattern.api.dto.salable_component.conventional.service.CreateServiceDTO;
 import caio.portfolio.design_pattern.domain.command.salable_component.CreateSalableComponentCommand;

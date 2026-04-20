@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.api.dto.salable_component.composite;
+package caio.portfolio.design_pattern.api.dto.salable_component.composite.kit;
 
 import java.util.List;
 
