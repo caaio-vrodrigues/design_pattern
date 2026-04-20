@@ -1,4 +1,4 @@
-package caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.message.product;
+package caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.product.message;
 
 import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.SalableComponentMessageCreator;
 

@@ -5,7 +5,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
 import caio.portfolio.design_pattern.domain.model.enums.salable_component.conventional.service.ServiceCategory;
-import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.message.service.ServiceMessageCreator;
+import caio.portfolio.design_pattern.domain.model.interfaces.salable_component.conventional.service.message.ServiceMessageCreator;
 import lombok.RequiredArgsConstructor;
 
 @Component
